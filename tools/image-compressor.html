@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Image Compressor - ARSA TOOLS</title><link rel="stylesheet" href="../style.css"></head>
+<body><header class="hero"><div class="container"><div class="brand">ARSA <span>TOOLS</span></div></div></header>
+<main class="container page"><a class="back" href="../index.html">← Kembali</a><div class="tool-panel"><h1>🖼️ Image Compressor</h1><input class="input" type="file" id="file" accept="image/*"><label>Kualitas: <span id="qv">70%</span></label><input class="input" type="range" id="q" min="10" max="100" value="70" oninput="qv.textContent=this.value+'%'"><button class="btn" onclick="compress()">Compress & Download</button><div class="result" id="result">Pilih gambar terlebih dahulu.</div></div></main>
+<script>
+function compress(){const f=document.getElementById('file').files[0];if(!f){result.textContent='Pilih gambar terlebih dahulu.';return}const img=new Image();img.onload=()=>{const c=document.createElement('canvas');c.width=img.width;c.height=img.height;c.getContext('2d').drawImage(img,0,0);c.toBlob(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='arsa-compressed.jpg';a.click();URL.revokeObjectURL(a.href);result.textContent='Selesai. Ukuran asli: '+Math.round(f.size/1024)+' KB → hasil: '+Math.round(b.size/1024)+' KB'},'image/jpeg',+q.value/100)};img.src=URL.createObjectURL(f)}
+</script></body></html>

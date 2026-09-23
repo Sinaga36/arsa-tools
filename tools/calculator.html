@@ -1,0 +1,5 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Calculator - ARSA TOOLS</title><link rel="stylesheet" href="../style.css"></head>
+<body><header class="hero"><div class="container"><div class="brand">ARSA <span>TOOLS</span></div></div></header>
+<main class="container page"><a class="back" href="../index.html">← Kembali</a><div class="tool-panel"><h1>🧮 Calculator</h1><p>Masukkan perhitungan, contoh: 100+25*2</p><input class="input" id="expr" placeholder="100+25*2"><button class="btn" onclick="calc()">Hitung</button><div class="result" id="result">Hasil akan muncul di sini.</div></div></main>
+<script>function calc(){const e=document.getElementById('expr').value;try{if(!/^[0-9+\-*/().%\s]+$/.test(e))throw 0;document.getElementById('result').textContent='Hasil: '+Function('return '+e)()}catch(x){document.getElementById('result').textContent='Perhitungan tidak valid.'}}</script></body></html>

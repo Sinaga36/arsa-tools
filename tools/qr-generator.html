@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>QR Generator - ARSA TOOLS</title><link rel="stylesheet" href="../style.css"></head>
+<body><header class="hero"><div class="container"><div class="brand">ARSA <span>TOOLS</span></div></div></header>
+<main class="container page"><a class="back" href="../index.html">← Kembali</a><div class="tool-panel"><h1>🔳 QR Code Generator</h1><p>Masukkan teks atau link.</p><input class="input" id="text" placeholder="https://contoh.com"><button class="btn" onclick="makeQR()">Buat QR</button><div id="qr" style="margin-top:20px"></div><div class="result">Versi awal menggunakan layanan QR publik untuk preview.</div></div></main>
+<script>
+function makeQR(){const t=document.getElementById('text').value.trim();if(!t){qr.innerHTML='Masukkan teks atau link.';return}qr.innerHTML='<img alt="QR Code" width="260" height="260" src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&data='+encodeURIComponent(t)+'">'}
+</script></body></html>

@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Image Resize - ARSA TOOLS</title><link rel="stylesheet" href="../style.css"></head>
+<body><header class="hero"><div class="container"><div class="brand">ARSA <span>TOOLS</span></div></div></header>
+<main class="container page"><a class="back" href="../index.html">← Kembali</a><div class="tool-panel"><h1>📐 Image Resize</h1><input class="input" type="file" id="file" accept="image/*"><label>Lebar (px)</label><input class="input" type="number" id="w" placeholder="800"><label>Tinggi (px)</label><input class="input" type="number" id="h" placeholder="600"><button class="btn" onclick="resizeImage()">Resize & Download</button><div class="result" id="result">Pilih gambar terlebih dahulu.</div></div></main>
+<script>
+function resizeImage(){const f=document.getElementById('file').files[0];const w=+document.getElementById('w').value,h=+document.getElementById('h').value;if(!f||!w||!h){document.getElementById('result').textContent='Lengkapi file, lebar, dan tinggi.';return}const img=new Image();img.onload=()=>{const c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);c.toBlob(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='arsa-resized.png';a.click();URL.revokeObjectURL(a.href);document.getElementById('result').textContent='Selesai. File sedang diunduh.'})};img.src=URL.createObjectURL(f)}
+</script></body></html>
